@@ -1,0 +1,173 @@
+/* Kommentarer, samtalstyper och sammanfattning – telefonforsaljare.nu */
+.tf-report, .tf-summary, .tf-card, .tf-similar, .tf-cta { --tf-ink:#1f2933; --tf-muted:#6b7785; --tf-line:#e3e8ee; --tf-accent:#2563eb; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--tf-ink); box-sizing: border-box; }
+.tf-report *, .tf-summary *, .tf-card *, .tf-similar *, .tf-cta * { box-sizing: border-box; }
+
+/* Färg per samtalstyp: --c = text/ram, --bg = ljus bakgrund */
+.tf-t-scam       { --c:#b42318; --bg:#fee4e2; }
+.tf-t-telesales  { --c:#b54708; --bg:#fef0c7; }
+.tf-t-ping       { --c:#6941c6; --bg:#ebe9fe; }
+.tf-t-robot      { --c:#475467; --bg:#eaecf0; }
+.tf-t-survey     { --c:#175cd3; --bg:#d1e9ff; }
+.tf-t-charity    { --c:#0e7090; --bg:#cff9fe; }
+.tf-t-collection { --c:#93370d; --bg:#fde2cc; }
+.tf-t-legit      { --c:#067647; --bg:#d3f8df; }
+.tf-t-private    { --c:#a21caf; --bg:#fae8ff; }
+.tf-t-other      { --c:#344054; --bg:#f2f4f7; }
+
+/* Formulär */
+.tf-report { max-width: none; margin: 16px 0 24px; padding: 18px; background:#fff; border:1px solid var(--tf-line); border-radius:14px; box-shadow:0 1px 2px rgba(16,24,40,.05); }
+.tf-report h3 { margin:0 0 12px; padding:0; font-size:18px; line-height:1.3; color:var(--tf-ink); }
+.tf-form fieldset { border:0; margin:0 0 14px; padding:0; }
+.tf-form legend { font-weight:600; font-size:14px; margin:0 0 8px; padding:0; border:0; width:auto; line-height:1.4; }
+.tf-chips { display:flex; flex-wrap:wrap; gap:8px; }
+.tf-chip { position:relative; margin:0; cursor:pointer; }
+.tf-chip input { position:absolute; opacity:0; inset:0; width:100%; height:100%; margin:0; cursor:pointer; }
+.tf-chip span { display:inline-block; padding:9px 14px; border:1.5px solid var(--tf-line); border-radius:999px; font-size:14px; background:#fff; transition:background .12s, border-color .12s, color .12s; user-select:none; }
+.tf-chip:hover span { border-color:var(--c); }
+.tf-chip input:checked + span { background:var(--bg); border-color:var(--c); color:var(--c); font-weight:600; }
+.tf-chip input:focus-visible + span { outline:3px solid rgba(37,99,235,.45); outline-offset:2px; }
+.tf-field { display:block; margin:0 0 12px; font-size:14px; font-weight:600; }
+.tf-field small { font-weight:400; color:var(--tf-muted); }
+.tf-field input, .tf-field textarea { display:block; width:100%; max-width:100%; margin-top:5px; padding:10px 12px; font:inherit; font-weight:400; color:var(--tf-ink); background:#fff; border:1px solid #cfd6df; border-radius:10px; height:auto; box-shadow:none; }
+.tf-field input:focus, .tf-field textarea:focus { outline:none; border-color:var(--tf-accent); box-shadow:0 0 0 3px rgba(37,99,235,.18); }
+.tf-hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.tf-submit { display:block; width:100%; margin-top:14px; padding:12px 16px; font:inherit; font-weight:600; color:#fff; background:var(--tf-accent); border:0; border-radius:10px; cursor:pointer; }
+.tf-submit:hover { background:#1d4ed8; }
+.tf-notice { padding:12px 14px; border-radius:10px; margin:0 0 14px; font-size:14px; }
+.tf-ok  { background:#d3f8df; color:#067647; }
+.tf-err { background:#fee4e2; color:#b42318; }
+
+/* Badge */
+.tf-badge { display:inline-block; padding:3px 10px; border-radius:999px; font-size:12px; font-weight:600; line-height:1.4; color:var(--c); background:var(--bg); white-space:nowrap; }
+
+/* Sammanfattning */
+.tf-summary { margin:14px 0 18px; padding:16px 18px; background:#fff; border:1px solid var(--tf-line); border-radius:14px; }
+.tf-lead { margin:0 0 10px; font-size:16px; clear:none; }
+.tf-bar { display:flex; height:10px; overflow:hidden; border-radius:999px; background:var(--tf-line); }
+.tf-seg { display:block; height:100%; background:var(--c); }
+.tf-legend { list-style:none; margin:10px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:6px 16px; font-size:13px; }
+.tf-legend li { margin:0; padding:0; }
+.tf-dot { display:inline-block; width:9px; height:9px; margin-right:6px; border-radius:50%; background:var(--c); }
+.tf-n { color:var(--tf-muted); }
+.tf-note { margin:10px 0 0; font-size:12px; color:var(--tf-muted); clear:none; }
+
+/* Kommentarskort */
+.tf-card { margin:0 0 12px; padding:14px 16px; background:#fff; border:1px solid var(--tf-line); border-radius:12px; }
+.tf-card header { display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; margin-bottom:8px; }
+.tf-company { font-size:15px; }
+.tf-time { margin-left:auto; font-size:12px; color:var(--tf-muted); }
+.tf-text { margin:0 0 8px; font-size:14px; line-height:1.55; clear:none; overflow-wrap:anywhere; }
+.tf-card footer { font-size:12px; color:var(--tf-muted); }
+
+@media (max-width:480px) { .tf-report { padding:14px; border-radius:12px; } .tf-chip span { padding:10px 14px; } }
+@media (prefers-reduced-motion:reduce) { .tf-chip span { transition:none; } }
+
+/* Mobil: typknapparna i två lika breda kolumner (alltid två per rad), text får radbrytas */
+@media (max-width:600px) {
+  .tf-chips { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px; }
+  .tf-chip { display:block; min-width:0; }
+  .tf-chip span { display:flex; align-items:center; justify-content:flex-start; width:100%; height:100%; min-height:48px; padding:8px 10px; gap:.4em; border-radius:14px; font-size:13.5px; line-height:1.2; white-space:normal; overflow-wrap:break-word; -webkit-hyphens:manual; hyphens:manual; }
+}
+/* Mycket smala skärmar (≤ 340 px): lite mindre text så att orden ryms */
+@media (max-width:340px) { .tf-chip span { font-size:12.5px; padding:8px 8px; } }
+
+/* ---------- Ikoner (CSS-masker med inbäddad SVG; banor efter Feather Icons, MIT) ---------- */
+:root {
+  --tfi-shield: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
+  --tfi-send: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 2 11 13'/%3E%3Cpath d='M22 2 15 22l-4-9-9-4 20-7z'/%3E%3C/svg%3E");
+  --tfi-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z'/%3E%3Cpath d='M12 9v4M12 17h.01'/%3E%3C/svg%3E");
+  --tfi-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  --tfi-headset: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 18v-6a9 9 0 0 1 18 0v6'/%3E%3Cpath d='M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z'/%3E%3C/svg%3E");
+  --tfi-bell: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9'/%3E%3Cpath d='M13.7 21a2 2 0 0 1-3.4 0'/%3E%3C/svg%3E");
+  --tfi-cpu: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='4' width='16' height='16' rx='2'/%3E%3Crect x='9' y='9' width='6' height='6'/%3E%3Cpath d='M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3'/%3E%3C/svg%3E");
+  --tfi-clipboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/%3E%3Crect x='8' y='2' width='8' height='4' rx='1'/%3E%3C/svg%3E");
+  --tfi-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E");
+  --tfi-file: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6M16 13H8M16 17H8M10 9H8'/%3E%3C/svg%3E");
+  --tfi-user: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+  --tfi-dots: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3Ccircle cx='19' cy='12' r='1'/%3E%3Ccircle cx='5' cy='12' r='1'/%3E%3C/svg%3E");
+}
+.tf-t-legit{--ico:var(--tfi-shield)} .tf-t-telesales{--ico:var(--tfi-headset)} .tf-t-scam{--ico:var(--tfi-alert)} .tf-t-ping{--ico:var(--tfi-bell)}
+.tf-t-robot{--ico:var(--tfi-cpu)} .tf-t-survey{--ico:var(--tfi-clipboard)} .tf-t-charity{--ico:var(--tfi-heart)}
+.tf-t-collection{--ico:var(--tfi-file)} .tf-t-private{--ico:var(--tfi-user)} .tf-t-other{--ico:var(--tfi-dots)}
+.tf-submit{--ico:var(--tfi-send)} .tf-ok{--ico:var(--tfi-check)} .tf-err{--ico:var(--tfi-alert)}
+.tf-chip span, .tf-badge { display:inline-flex; align-items:center; gap:.45em; }
+.tf-submit, .tf-notice { display:flex; align-items:center; justify-content:center; gap:.55em; }
+.tf-notice { justify-content:flex-start; }
+.tf-submit::before, .tf-chip span::before, .tf-badge::before, .tf-notice::before {
+  content:""; flex:none; width:1.1em; height:1.1em; background:currentColor;
+  -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat;
+}
+.tf-chip span::before { background:var(--c); }
+.tf-badge::before { width:.95em; height:.95em; }
+
+/* Bred layout: företag och namn bredvid varandra, resten över hela bredden (enkel kolumn på mobil) */
+@media (min-width:700px) {
+  .tf-form { display:grid; grid-template-columns:1fr 1fr; gap:0 18px; align-items:start; }
+  .tf-form > fieldset, .tf-form > .g-recaptcha, .tf-form > .tf-submit { grid-column:1 / -1; }
+  .tf-form > .tf-field { order:1; }
+  .tf-form > .g-recaptcha { order:3; }
+  .tf-form > .tf-submit { order:4; }
+}
+@media (min-width:700px) { .tf-form > .tf-field:has(textarea) { grid-column:1 / -1; order:2; } }
+@media (min-width:700px) { .tf-form > .tf-field:has(textarea) textarea { min-height:110px; } }
+
+/* ---- Riskbedömning och råd ---- */
+.tf-risk { --rc:#475467; --rbg:#f2f4f7; margin:0 0 14px; padding:12px 14px; border-radius:12px; background:var(--rbg); border-left:5px solid var(--rc); }
+.tf-risk-high     { --rc:#b42318; --rbg:#fef3f2; }
+.tf-risk-unwanted { --rc:#b54708; --rbg:#fffaeb; }
+.tf-risk-safe     { --rc:#067647; --rbg:#ecfdf3; }
+.tf-risk-neutral  { --rc:#175cd3; --rbg:#eff8ff; }
+.tf-risk-label { margin:0 0 4px; font-size:15px; line-height:1.4; }
+.tf-risk-label strong { color:var(--rc); font-size:17px; }
+.tf-risk-label span { color:var(--tf-muted); }
+.tf-advice { margin:0; font-size:14px; line-height:1.55; }
+
+/* ---- Anmäl kommentar ---- */
+.tf-card footer { display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; gap:6px 12px; }
+.tf-flag { font-size:12px; }
+.tf-flag summary { display:inline-block; cursor:pointer; color:var(--tf-muted); list-style:none; padding:2px 6px; border-radius:6px; }
+.tf-flag summary::-webkit-details-marker { display:none; }
+.tf-flag summary:hover, .tf-flag[open] summary { color:var(--tf-ink); background:#f2f4f7; }
+.tf-flag-form { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:8px 0 0; }
+.tf-flag-form select, .tf-flag-form button { font:inherit; font-size:13px; padding:6px 10px; border:1px solid var(--tf-line); border-radius:8px; background:#fff; }
+.tf-flag-form button { cursor:pointer; background:var(--tf-accent); border-color:var(--tf-accent); color:#fff; }
+.tf-flag-done { color:var(--tf-muted); }
+.tf-hp { position:absolute !important; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+/* ---- Utveckling över tid och liknande nummer ---- */
+.tf-trend { margin:12px 0 0; font-size:13px; color:var(--tf-muted); }
+.tf-trend-badge { display:inline-block; padding:2px 10px; margin-right:6px; border-radius:999px; font-weight:700; font-size:12px; background:#fee4e2; color:#b42318; }
+.tf-trend-badge.tf-new { background:#d1e9ff; color:#175cd3; }
+.tf-similar { margin:18px 0; padding:16px 18px; background:#fff; border:1px solid var(--tf-line); border-radius:14px; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--tf-ink); }
+.tf-similar h3 { margin:0 0 6px; padding:0; font-size:17px; border:0; }
+.tf-similar p { margin:0 0 10px; font-size:14px; }
+.tf-similar-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:8px 18px; }
+.tf-similar-list li { display:flex; flex-wrap:wrap; align-items:center; gap:4px 8px; padding:6px 0; border-bottom:1px solid var(--tf-line); font-size:14px; }
+.tf-similar-list a { font-weight:600; }
+.tf-similar-list .tf-n { color:var(--tf-muted); font-size:12px; }
+
+/* ---- Språk på kommentar ---- */
+.tf-lang { display:inline-block; padding:1px 7px; border-radius:6px; border:1px solid var(--tf-line); font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--tf-muted); background:#fff; }
+.tf-select { width:100%; margin-top:6px; padding:10px 12px; font:inherit; font-size:16px; border:1px solid var(--tf-line); border-radius:10px; background:#fff; color:var(--tf-ink); }
+
+/* ---- Landsväljare (intl-tel-input) i formuläret ---- */
+.tf-field .iti { display:block; width:100%; margin-top:6px; }
+.tf-field .iti input[type=tel] { width:100%; }
+
+/* Förklaring av vald samtalstyp under chipsen */
+.tf-type-help { margin:10px 0 0; padding:9px 12px; min-height:2.6em; border-radius:10px; background:#f6f8fa; border:1px solid var(--tf-line); font-size:13.5px; line-height:1.45; color:var(--tf-muted); }
+
+/* "Bli först att rapportera" – visas på nummer utan rapporter */
+.tf-cta { margin:16px 0; padding:16px 18px; background:#f3f8ff; border:1px solid #cfe0fb; border-left:5px solid var(--tf-accent); border-radius:12px; }
+.tf-cta p { margin:0 0 8px; }
+.tf-cta-kicker { font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--tf-accent); }
+.tf-cta-title { font-size:19px; line-height:1.3; font-weight:700; color:var(--tf-ink); }
+.tf-cta-text { font-size:15px; line-height:1.5; }
+.tf-cta-label { margin-top:12px !important; font-size:14px; font-weight:600; }
+.tf-cta-btns { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:8px; margin:8px 0 10px; }
+.tf-cta-btn { display:flex; align-items:center; justify-content:center; min-height:46px; padding:8px 10px; text-align:center; text-decoration:none !important; font-size:14px; font-weight:600; line-height:1.2; color:var(--c) !important; background:#fff; border:1.5px solid var(--c); border-radius:12px; -webkit-hyphens:manual; hyphens:manual; overflow-wrap:break-word; transition:background .12s; }
+.tf-cta-btn:hover, .tf-cta-btn:focus-visible { background:var(--bg); outline:none; }
+.tf-cta-btn:focus-visible { box-shadow:0 0 0 3px rgba(37,99,235,.45); }
+.tf-cta-note { font-size:13px; color:var(--tf-muted); }
+@media (min-width:640px) { .tf-cta-btns { grid-template-columns:repeat(3, minmax(0,1fr)); } }
+@media (prefers-reduced-motion:reduce) { .tf-cta-btn { transition:none; } }
