@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url("https://cdn.jsdelivr.net/gh/affifuddin-hazam/README@a438a537b783fccf6dd1ca8e5908885af4d17089/web/telefonforsaljare.nu/07805c0a3e52e7d54d2e6a87308f38f299899e573ecbed68a73b3892795b59a6.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url("https://cdn.jsdelivr.net/gh/affifuddin-hazam/README@e26d931f2a526fea236a92e60e89f238399b629d/web/telefonforsaljare.nu/d8f99fb48842f2a6b113cb9934e41bde592193380396bf352aa85d634e77ce9f.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://cdn.jsdelivr.net/gh/affifuddin-hazam/README@d134ff793bc970175866c53c066c6dc898a1f1fc/web/telefonforsaljare.nu/262181f0b36dace5b3572ba06360dfd60d05e1c7ac9752ef7e01312adf4b5d73.ttf") format('truetype');
+}
