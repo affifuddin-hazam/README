@@ -1,0 +1,169 @@
+/* telefonforsaljare.nu – style.css (modern, ersätter den gamla)
+   Fristående: fungerar även om Bootstrap inte laddas, och vinner över Bootstrap 3 när den finns.
+   Ikoner = CSS-masker med inbäddad SVG (följer textfärgen). Banor efter Feather Icons (MIT). */
+:root {
+  --bg:#f3f5f9; --surface:#fff; --ink:#1f2933; --muted:#667085; --line:#e4e8ef;
+  --brand:#2563eb; --brand-ink:#1d4ed8; --radius:14px; --page:1120px; /* sidans maxbredd – ändra här */
+  --shadow:0 1px 2px rgba(16,24,40,.06), 0 10px 30px rgba(16,24,40,.07);
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --i-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
+  --i-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
+  --i-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z'/%3E%3Cpath d='M12 9v4M12 17h.01'/%3E%3C/svg%3E");
+  --i-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  --i-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E");
+}
+*, *::before, *::after { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; padding:0; background:var(--bg); color:var(--ink); font:15px/1.6 var(--font); -webkit-font-smoothing:antialiased; }
+img { max-width:100%; height:auto; border:0; }
+span.metadata { display:none; }
+:focus-visible { outline:3px solid rgba(37,99,235,.45); outline-offset:2px; }
+
+/* Typografi */
+h1,h2,h3,h4,label { font-family:var(--font); }
+a { color:var(--brand); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a:hover { color:var(--brand-ink); }
+h3 a, h1 a { color:inherit; text-decoration:inherit; font-weight:inherit; }
+div#content h1 { font-size:26px; line-height:1.25; font-weight:700; letter-spacing:-.02em; color:var(--ink); margin:4px 0 14px; padding:0; }
+h2 { font-size:20px; font-weight:700; letter-spacing:-.01em; color:var(--ink); margin:22px 0 8px; padding:0; clear:both; }
+h3 { font-size:17px; font-weight:600; color:var(--ink); margin:20px 0 8px; padding:0; line-height:1.35; clear:both; }
+p { margin:0 0 12px; clear:both; }
+.small, p.small { font-size:12.5px; color:var(--muted); }
+p.small a { color:inherit; }
+.fn, .en, .name { font-size:15px; font-weight:700; }
+.kommentar { font-weight:600; }
+.adress { font-size:13px; line-height:1.4; font-weight:400; }
+p span.adress a.gatunamn { color:inherit; text-decoration:inherit; }
+
+/* Sidramen: ett kort på ljus bakgrund */
+div.container { width:auto; max-width:var(--page); margin:16px auto; padding:0 20px 8px; border:0; background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
+.row { margin:0; }
+div#content { padding:16px 0; background:none; border:0; }
+div#content > p { max-width:80ch; }
+div#body { width:auto; min-width:0; max-width:none; margin:0; padding:0; background:none; }
+div#kommentarer { padding:10px 0; }
+
+/* Header: logga till vänster, h2 (sajtnamn) och h3 (underrubrik) bredvid. Båda rubrikerna är kvar i HTML och synliga på alla skärmar. */
+div#header { display:grid; grid-template-columns:auto 1fr; grid-template-areas:"logo title" "logo sub"; align-items:center; column-gap:16px; row-gap:0; min-height:0; padding:16px 0 4px; margin:0; background:none; border:0; }
+div#header > a { grid-area:logo; display:block; text-decoration:none; color:inherit; }
+#headerimg { float:none; display:block; height:56px; width:auto; margin:0; }
+div#header h2 { grid-area:title; align-self:end; float:none; clear:none; margin:0; padding:0; font:700 24px/1.2 var(--font); letter-spacing:-.02em; color:var(--ink); }
+div#header h2 a { color:inherit; text-decoration:none; }
+div#header h3 { grid-area:sub; align-self:start; float:none; clear:none; margin:2px 0 0; padding:0; font:400 14px/1.4 var(--font); color:var(--muted); }
+#topbr { display:none; }
+/* Sökytan ligger i en egen div#forms under headern */
+div#forms { clear:both; padding:12px 0 16px; border-bottom:1px solid var(--line); }
+form.top { float:none !important; width:100%; margin:0; }
+form#right { display:none; }
+.fb-like { display:none; }
+
+/* Sökfält (piller) */
+form.top .input-group { display:flex; width:100%; }
+form.top input#nr { float:none; flex:1 1 auto; min-width:0; width:auto; height:48px; padding:0 20px; font:400 17px/1 var(--font); text-align:left; color:var(--ink); background:#fff; border:1.5px solid var(--line); border-right:0; border-radius:999px 0 0 999px; box-shadow:none; }
+form.top input#nr:focus { outline:none; border-color:var(--brand); box-shadow:0 0 0 3px rgba(37,99,235,.18); }
+form.top .input-group-btn { display:flex; width:auto; font-size:inherit; }
+form.top .input-group-btn > .btn { height:48px; padding:0 24px; margin:0; font-size:16px; border-radius:0 999px 999px 0; }
+
+/* Knappar + ikoner */
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:.5em; border:0; border-radius:10px; font:600 15px/1 var(--font); cursor:pointer; transition:background-color .12s, transform .05s; }
+.btn:active { transform:translateY(1px); }
+.btn-primary { background:var(--brand); color:#fff; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background:var(--brand-ink); color:#fff; }
+.ico::before, #send::before, .nummer::before {
+  content:""; flex:none; width:1.15em; height:1.15em; background:currentColor;
+  -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat;
+}
+.ico { display:inline-flex; align-items:center; gap:.5em; }
+/* Valfritt i framtida HTML: \3c span class="ico ico-phone">Ring\3c /span> */
+.ico-search { --ico:var(--i-search); } .ico-phone { --ico:var(--i-phone); }
+.ico-alert { --ico:var(--i-alert); } .ico-check { --ico:var(--i-check); } .ico-arrow { --ico:var(--i-arrow); }
+#send { --ico:var(--i-search); }
+.nummer { --ico:var(--i-phone); display:inline-flex; align-items:center; gap:.4em; padding:0; background:none; font:500 14px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+
+/* Kort, rutor, nummer-chips */
+.well { background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:none; padding:16px; margin:0 0 16px; min-height:0; }
+.well a { opacity:1; color:inherit; text-decoration:none; }
+.well p:last-child { margin-bottom:0; }
+div.rounded { padding:12px; min-height:0; background:var(--brand); color:#fff; border-radius:12px; }
+div.item { margin:8px 0; padding:12px 14px; background:#fff; border:1px solid var(--line); border-radius:12px; font-size:14px; }
+.item p { margin:4px 0; line-height:1.5; }
+a.nr, a.frontnr, a#frontnr { display:inline-block; margin:3px 2px; padding:7px 12px; font:500 13px/1.2 var(--font); color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:999px; text-decoration:none; transition:border-color .12s, color .12s; }
+a.frontnr, a#frontnr { float:none; }
+a.nr:hover, a.frontnr:hover { color:var(--brand); border-color:var(--brand); }
+span.nr { font-weight:500; margin-right:10px; }
+ul#riktnummer { margin:0 0 0 4px; padding:0; }
+ul#riktnummer li { list-style:none; clear:both; padding:2px 0; }
+div#list { clear:both; padding-top:10px; font-size:14px; }
+#smap { font-size:12px; line-height:1.4; margin:1px; padding:1px; }
+img.number-graph { max-width:100%; height:auto; border-radius:10px; }
+
+/* Formulärfält och meddelanden (Bootstrap-kompatibla) */
+.form-control, div#forms input, .item input { height:auto; padding:10px 12px; font:400 15px/1.4 var(--font); color:var(--ink); background:#fff; border:1px solid #cfd6df; border-radius:10px; box-shadow:none; }
+.form-control:focus, div#forms input:focus { outline:none; border-color:var(--brand); box-shadow:0 0 0 3px rgba(37,99,235,.18); }
+.alert { padding:12px 14px; border:0; border-radius:12px; background:#eef4ff; color:#1e3a8a; margin:0 0 14px; }
+.alert-danger, .alert-warning { background:#fee4e2; color:#b42318; }
+.alert-success { background:#d3f8df; color:#067647; }
+
+/* Annonser */
+div.adsbox, div#ads { margin:12px 0; max-width:100%; overflow:hidden; }
+ins.adsbygoogle { max-width:100%; }
+
+/* Betygsstjärnor (äldre kommentarer) */
+.rating { margin-top:5px; overflow:hidden; display:inline-block; font-size:0; position:relative; }
+.rating-input { float:right; width:16px; height:16px; padding:0; margin:0 0 0 -16px; opacity:0; }
+.rating:hover .rating-star:hover, .rating:hover .rating-star:hover ~ .rating-star, .rating-input:checked ~ .rating-star { background-position:0 0; }
+.rating-star, .rating:hover .rating-star { position:relative; float:right; display:block; width:16px; height:16px; background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAACvElEQVR4AaWUA5BbXRiG35h/8tu2a9u2zWHtdqzatm0zKAa1rbUZdcN7Tr+gyOxt0H1nnsvjb+ZBrNw82uoz4h/EiOSdnY80lQMwEd8TNat0tBYjmdw8XHdhyrk2PO1CO07PpwkZEs2Ng5UHPjU34PY73bjzXg/+3NqI07c5cbdwY/+vHwPoR8z69ttvtRqNBsEIgoCUlBQOYCaxumq3ZxmvB7ix59Pg0loRg4mORqNRRUClUuHtBAIB2O12lJSUMABWYhNxQHJ9JzZqtdrBBoMBOp0OUqkUscIYg9vthsPhgMvluia5vhXfArj33Xdyo1qtRqJ5+tTFATSUgHJtI4bTAtZ+8QUSSmEhYLNhefUhGClHMH6sdxSjt1KCZh99hJgpKwNshUgFMDWqCleX4Q+FAo9+/BExk5sL2jt61BiJfaDIEQn3It3vC91jxucKtQmVMWqAmhPguTIDjLljF4J7gqPgRfQAb1bhZB4YGUClCu+XMUCrDSOn1gJ95wE4RQeAB86cFBg9HrgAWAgT4aLWLQC0VCrxGQsAYHBCLJfGYgzRkFCI/JMQVYhphAqJxGw2f0a8nw/MJlOUD5q3aJGcD0xnziy8cvkyv3b1Kqfn04SoD0QLdub0qYF6vW7sJ598jCAGwwctOWcz427h9KkTCfmgVeu2b3xw6sSxivng5LEjFfPBiaMHIz74LkkfPH3jg2OHD5APDOSDLxL0QSH5wLa8faeuYR9wxtbbbbbeCrmcfPBRHB+UobSkpLwPDh/YSz5QkA9+jOOD3ODee3Tq2iPaB4zzdJ/fH7wjVrw+X7BNeR906dbTc2DfbkY1l1JiVoFzLu4DxuEUGDcKTAiVivYb6kBlDiEnIQQEFmonLhT6kZ2dQz7wRPnA4XBGfKD8TBBYqB3EsmfPnjFEQ0Ih8k9CVCGmESpE8hJycYKQ2EyhmAAAAABJRU5ErkJggg==") 0 -16px; }
+
+/* Nummerlistor (startsidan, sitemap): rutnät med jämna kolumner. Alla länkar finns kvar i HTML. */
+.frontNumberBox { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:8px; margin:0 0 8px; }
+.frontNumberBox > br { display:none; }
+.frontNumberBox a.nr, .frontNumberBox a.frontnr { margin:0; text-align:center; white-space:nowrap; }
+
+/* Hopfällning på mobil. Läggs på av /lists.js, så utan JavaScript syns hela listan.
+   Innehållet klipps bara visuellt (aldrig display:none) och ligger kvar i HTML:en för sökmotorer. */
+.tf-fold { position:relative; overflow:hidden; max-height:184px; }
+.tf-fold::after { content:""; position:absolute; left:0; right:0; bottom:0; height:64px; background:linear-gradient(to bottom, rgba(255,255,255,0), #fff 85%); pointer-events:none; }
+.tf-fold.is-open { max-height:none; overflow:visible; }
+.tf-fold.is-open::after { display:none; }
+.tf-more { display:flex; align-items:center; justify-content:center; gap:.5em; width:100%; margin:4px 0 18px; padding:12px 16px; font:600 15px/1 var(--font); color:var(--brand); background:#fff; border:1.5px solid var(--brand); border-radius:999px; cursor:pointer; }
+.tf-more[hidden] { display:none; }
+.tf-more:hover { background:#eef4ff; }
+.tf-more::after { content:""; width:.55em; height:.55em; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:translateY(-.12em) rotate(45deg); transition:transform .15s; }
+.tf-more[aria-expanded="true"]::after { transform:translateY(.1em) rotate(-135deg); }
+
+/* Sidfot */
+div.container > footer { width:auto; margin:28px -20px -8px; padding:20px; background:#101828; color:#d0d5dd; font-size:13px; }
+div.container > footer a { color:#fff; text-decoration:underline; }
+#footer { margin:10px auto 0; font-size:12px; }
+
+/* Mobil */
+@media (max-width:600px) {
+  body { font-size:16px; }
+  div.container { margin:0; padding:0 16px 8px; border-radius:0; box-shadow:none; }
+  div.container > footer { margin-left:-16px; margin-right:-16px; }
+  div#header { padding:12px 0 2px; column-gap:12px; }
+  div#header h3 { font-size:13px; }
+  div#forms { padding:10px 0 12px; }
+  #headerimg { height:36px; }
+  div#header h2 { font-size:19px; }
+  form.top input#nr { height:50px; }
+  form.top .input-group-btn > .btn { height:50px; padding:0 18px; }
+  div#content { padding:12px 0; }
+  div#content h1 { font-size:23px; }
+  .well { padding:14px; margin:0 0 14px; }
+}
+@media (prefers-reduced-motion:reduce) { *, *::before, *::after { transition:none !important; } }
+
+/* ---- Startsidan: sökningen som hjälte ---- */
+.tf-home div#header { padding:26px 0 6px; }
+.tf-home div#header h2 { font-size:clamp(24px,4.4vw,38px); }
+.tf-home div#header h3 { font-size:clamp(14px,2vw,17px); }
+.tf-home div#forms { padding:18px 0 22px; border-bottom:0; }
+.tf-home form.top { max-width:760px; margin:0 auto; }
+.tf-home form.top input#nr { height:60px; padding:0 26px; font-size:19px; box-shadow:0 6px 24px rgba(37,99,235,.14); border-color:#c9d6f5; }
+.tf-home form.top .input-group-btn > .btn { height:60px; padding:0 32px; font-size:18px; box-shadow:0 6px 24px rgba(37,99,235,.2); }
+@media (max-width:600px) {
+  .tf-home div#header { padding:14px 0 2px; }
+  .tf-home form.top input#nr { height:52px; padding:0 18px; font-size:17px; }
+  .tf-home form.top .input-group-btn > .btn { height:52px; padding:0 22px; font-size:16px; }
+}
